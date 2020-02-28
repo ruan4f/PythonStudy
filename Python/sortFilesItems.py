@@ -10,29 +10,28 @@ def bubbleSort(arr):
             # traverse the array from 0 to n-i-1
             # Swap if the element found is greater
             # than the next element
-            if arr[j] > arr[j+1] :
+            lineBefore = arr[j]
+            lineAfter = arr[j+1]
+
+            clientNumberBefore = lineBefore[6:14]
+            clientNumberAfter = lineAfter[6:14]
+
+            if clientNumberBefore > clientNumberAfter :
                 arr[j], arr[j+1] = arr[j+1], arr[j]
-
-# Driver code to test above
-# arr = [64, 34, 25, 12, 22, 11, 90]
- 
-# bubbleSort(arr)
- 
-print ("Sorted array is:")
-# for i in range(len(arr)):
-#     print ("%d" %arr[i])
-
-
 
 def main():
   file = open(r"C:\Users\ruanf\Desktop\FilesTest\AlinhaFat_202001Ate20200204_1351.txt","r+")
-
   lines = file.readlines()  
+  file.close() 
+
+  bubbleSort(lines)
+
+  file2 = open("myfile.txt","w")   
 
   for line in lines:
-    print (line)
+    file2.write(line + "\n") 
 
-  file.close() 
+  file2.close()
 
 if __name__== "__main__":
   main()
