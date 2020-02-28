@@ -14,10 +14,25 @@ def bubbleSort(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
 
 # Driver code to test above
-arr = [64, 34, 25, 12, 22, 11, 90]
+# arr = [64, 34, 25, 12, 22, 11, 90]
  
-bubbleSort(arr)
+# bubbleSort(arr)
  
 print ("Sorted array is:")
-for i in range(len(arr)):
-    print ("%d" %arr[i]), 
+# for i in range(len(arr)):
+#     print ("%d" %arr[i])
+
+
+
+def main():
+  file = open(r"C:\Users\ruanf\Desktop\FilesTest\AlinhaFat_202001Ate20200204_1351.txt","r+")
+
+  lines = file.readlines()  
+
+  for line in lines:
+    print (line)
+
+  file.close() 
+
+if __name__== "__main__":
+  main()
