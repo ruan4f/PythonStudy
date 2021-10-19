@@ -2,6 +2,7 @@
 import psycopg2
 from config import config
 
+
 def query(queryString):
     """ Connect to the PostgreSQL database server """
     results = None
@@ -13,15 +14,15 @@ def query(queryString):
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database...')
         connection = psycopg2.connect(**params)
-		
+
         # create a curso
         cursor = connection.cursor()
-        
-	# execute a statement
+
+        # execute a statement
         cursor.execute(queryString)
         connection.commit()
         results = cursor.fetchall()
-    
+
         cursor.close()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
@@ -31,6 +32,7 @@ def query(queryString):
             print('Database connection closed.')
 
     return results
+
 
 if __name__ == '__main__':
     query()
