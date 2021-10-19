@@ -10,7 +10,7 @@ from database import query
 
 
 def lista_compras():
-    return query('SELECT * FROM produtos')
+    return query('SELECT * FROM compras')
 
 
 def lista_produtos():
@@ -23,15 +23,18 @@ def cadastrar_compra(form):
     valor_por_unidade = form['valor_por_unidade']
 
     preco_medio = 0
-    if not valor_por_unidade and not quantidade and quantidade != 0:
-        preco_medio = int(valor_por_unidade) / int(quantidade)
+    if valor_por_unidade and quantidade and int(quantidade) != 0:
+        quantidade = int(quantidade)
+        valor_por_unidade = int(valor_por_unidade)
+
+        preco_medio = valor_por_unidade / quantidade
 
     queryString = """ 
-        INSERT INTO produtos(nome, quantidade, valor_por_unidade)
-        VALUES ('{0}', {1}, {2})
+        INSERT INTO compras(nome, quantidade, valor_por_unidade, preco_medio)
+        VALUES ('{0}', {1}, {2}, {3})
     """
 
-    query(queryString.format(nome, quantidade, valor_por_unidade))
+    query(queryString.format(nome, quantidade, valor_por_unidade, preco_medio))
 
 
 def cadastrar_produto(form):
