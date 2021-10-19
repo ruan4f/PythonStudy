@@ -20,26 +20,27 @@
     </br>
     <div class="container">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button href="" class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Voltar</button>
+            <a class="btn btn-primary me-md-2" href="{{ url_for('compra') }}" role="button">Voltar</a>
         </div>
 
         </br>
 
-        <table class="table">
+        <table class="table" width="100%">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Valor por unidade</th>
+                    <th scope="col">Nome</th>
                 </tr>
             </thead>
             <tbody>
-
+                {% for produto in produtos %}
+                    <tr>
+                        <th scope="row">{{ produto[0] }}</th>
+                        <td>{{ produto[1] }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
-
-
 </body>
 </html>
