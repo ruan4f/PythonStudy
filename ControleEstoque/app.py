@@ -12,6 +12,7 @@ from database import query
 def lista_compras():
     return query('SELECT * FROM produtos')
 
+
 def lista_produtos():
     return query('SELECT * FROM produtos')
 
@@ -42,6 +43,8 @@ def cadastrar_produto(form):
 
     query(queryString.format(nome))
 
+
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/compra', methods=['GET', 'POST'])
 def compra(nome=None):
     if request.method == "POST":
