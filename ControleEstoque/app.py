@@ -47,7 +47,16 @@ def cadastrar_produto(form):
     query(queryString.format(nome))
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+def login(nome=None):
+    return render_template("login.html")
+
+
+@app.route('/login', methods=['POST'])
+def logar(nome=None):
+    return redirect("compra")
+
+
 @app.route('/compra', methods=['GET', 'POST'])
 def compra(nome=None):
     if request.method == "POST":
@@ -64,9 +73,7 @@ def produtos(nome=None):
     return render_template("produtos.html", produtos=lista_produtos())
 
 
-@app.route('/login/', methods=['GET'])
-def inicio(nome=None):
-    return render_template("login.html")
+
 
 
 # @app.route('/compraProdutos/', methods=['GET'])
