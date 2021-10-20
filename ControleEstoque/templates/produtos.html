@@ -20,6 +20,7 @@
     </br>
     <div class="container">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button href="" class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#cadastrarProduto">Novo Produto</button>
             <a class="btn btn-primary me-md-2" href="{{ url_for('compra') }}" role="button">Voltar</a>
         </div>
 
@@ -42,5 +43,32 @@
             </tbody>
         </table>
     </div>
+
+<div class="modal fade" id="cadastrarProduto" tabindex="-1" role="dialog" aria-labelledby="cadastrarProdutoLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="{{ url_for('produtos') }}" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cadastrar novo produto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label class="visually-hidden" for="nome">Nome do Produto</label>
+                            <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome do Produto">
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

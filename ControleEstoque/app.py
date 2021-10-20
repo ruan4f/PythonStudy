@@ -56,7 +56,7 @@ def compra(nome=None):
     return render_template("compra.html", compras=lista_compras())
 
 
-@app.route('/produtos', methods=['GET'])
+@app.route('/produtos', methods=['GET', 'POST'])
 def produtos(nome=None):
     if request.method == "POST":
         cadastrar_produto(request.form)
